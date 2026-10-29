@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="http://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1>{{ title }}</h1>
+<div class="card">
+    <p class="meta">{{ description }}</p>
+
+    <p class="meta">Пользователь: {{ user_name }}</p>
+
+    <p class="meta">Возраст: {{ user_age }}</p>
+
+    {% if user_age >= 18 %}
+        <p class="meta">Пользователь совершеннолетний</p>
+    {% else %}
+        <p class="meta">Пользователь несовершеннолетний</p>
+    {% endif %}
+
+    <p class="meta">Город: {{ city }}</p>
+
+    <p class="meta">Сейчас: {% now 'd.m.Y H:i' %}</p>
+
+    <p class="meta"><a href="http://127.0.0.1:5681/products/">Продукты</a></p>
+    <p class="meta"><a href="http://127.0.0.1:5681/detail/">Подробная информация</a></p>
+    <p class="meta"><a href="http://127.0.0.1:5681/movie/">Фильм</a></p>
+</div>
+</body>
+</html>
