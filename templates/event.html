@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Событие года</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="http://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1>{{ title }}</h1>
+<div class="card">
+    <h2>{{ name }}</h2>
+    <p>Дата проведения: {{ date }}</p>
+    <p>Место проведения: {{ location }}</p>
+    <p>Количество участников: {{ participants }}
+    {% if participants >= 100 %}
+        (Крупное мероприятие)
+    {% elif pacticipants >= 50 %}
+        (Среднее мероприятие)
+    {% else %}
+        (Небольшое мероприятие)
+    {% endif %}
+    </p>
+    <p class="meta"><a href="http://127.0.0.1:5681/main/">На главную</a></p>
+</div>
+</body>
+</html>

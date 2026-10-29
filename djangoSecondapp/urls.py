@@ -18,4 +18,5 @@ urlpatterns = [
     path('servererror/', views.servererror),
     path('movie/', views.movie, name='movie'),
     path('products/', views.products, name='products'),
+    path('event/', views.event, name='event'),
 ]

@@ -125,4 +125,15 @@ def products(request):
     return render(request,'products.html', context)
 
 def event(request):
-    return render()
+    name = request.GET.get('name', 'Не указано')
+    date = request.GET.get('date', 'Не указано')
+    location = request.GET.get('location', 'Не указано')
+    participants = int(request.GET.get('participants', 0))
+    variables = {
+        'name': name,
+        'date': date,
+        'location': location,
+        'participants': participants,
+    }
+    context = {**general_info, **variables}
+    return render(request, 'event.html', context)
