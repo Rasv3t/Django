@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 0%, #2a1b5c, #0f0f1a 60%);
+    color: #eee;
+    text-align: center;
+    font-family: 'Exo 2', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+h1 {
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    background: linear-gradient(90deg, #00e5ff, #7c4dff, #ff4081, #00e5ff);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 12px rgba(124, 77, 255, 0.6));
+    animation: flow 6s linear infinite, fadeIn 1s ease-out;
+}
+
+p {
+    animation: fadeIn 1.2s ease-out both;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #fff, #c4b5fd, #67e8f9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 12px rgba(196, 181, 253, .6));
+}
+
+.meta {
+    font-size: 1.3rem;
+    margin: 18px 0;
+}
+
+.meta span {
+    display: block;
+    font-size: .75rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    opacity: .6;
+}
+
+.ratings {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 28px;
+}
+
+.badge {
+    padding: 16px 32px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .3)
+}
+
+.badge b {
+    display: block;
+    font: 700 2.4rem 'Orbitron', sans-serif;
+}
+
+.badge small {
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    opacity: .7;
+}
+
+.card {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    animation: rise .8s ease both;
+    transition: box-shadow .3s
+}
+
+.card.wide {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.card:hover {
+    box-shadow: 0 0 40px rgba(196, 181, 253, .45);
+}
+
+a {
+    display: inline-block;
+    padding: 10px 24px;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #7c4dff;
+    border-radius: 999px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+
+}
+
+a:hover {
+    transform: translateY(-3px);
+    background: #7c4dff;
+    box-shadow: 0 0 18px rgba(124, 77, 255, 0.8);
+}
+
+td, th {
+    padding: 12px 16px;
+}
+
+table {
+    width: 100%;
+}
+
+@keyframes flow {
+    from { background-position: 0% 50%; }
+    to { background-position: 300% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(20px); }
+}

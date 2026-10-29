@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Best movie</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="http://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1>{{ title }}</h1>
+<div class="card">
+    <h2 class="title">{{ name }}</h2>
+    <p class="meta"><span>Премьера:</span> {{ year }}</p>
+    <p class="meta"><span>Режисёр:</span> {{ director }}</p>
+    <div class="ratings">
+        <p class="badge"><b>{{ metascore }}/100 </b><small>Metascore</small></p>
+        <p class="badge"><b>{{ IMDb_rating }}/10 </b><small>IMDb</small></p>
+    </div>
+    <p class="meta"><a href="http://127.0.0.1:5681/main/">На главную</a></p>
+</div>
+</body>
+</html>
