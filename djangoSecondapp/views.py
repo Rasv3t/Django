@@ -137,3 +137,13 @@ def event(request):
     }
     context = {**general_info, **variables}
     return render(request, 'event.html', context)
+
+def sevenvarik(request):
+    events = [
+        {'name': 'Октябрьская революция', 'date': '24.10.1917', 'location': 'Петроград'},
+        {'name': 'Развлечения и IT: стриминг, игры и новые форматы', 'date': '17.11.2026', 'location': 'Санкт-Петербург'},
+        {'name': 'Смерть Елизаветы 2', 'date': '8.09.2022', 'location': 'Замок Балморал, Шотландия'},
+        {'name': '', 'date': '', 'location': ''},
+    ]
+    context = {**general_info, 'events': events}
+    return render(request, 'sevenvarik.html', context)
