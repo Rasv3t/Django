@@ -1,5 +1,8 @@
+from datetime import date
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect, HttpResponseBadRequest, HttpResponseForbidden, HttpResponseNotFound, HttpResponseServerError
+from django.utils import timezone
 
 def product_list(request):
     # header = 'Данные пользователя'
@@ -138,12 +141,13 @@ def event(request):
     context = {**general_info, **variables}
     return render(request, 'event.html', context)
 
-def sevenvarik(request):
+def listofevents(request):
+    today = date.today()
     events = [
-        {'name': 'Октябрьская революция', 'date': '24.10.1917', 'location': 'Петроград'},
-        {'name': 'Развлечения и IT: стриминг, игры и новые форматы', 'date': '17.11.2026', 'location': 'Санкт-Петербург'},
-        {'name': 'Смерть Елизаветы 2', 'date': '8.09.2022', 'location': 'Замок Балморал, Шотландия'},
-        {'name': '', 'date': '', 'location': ''},
+        {'name': 'Октябрьская революция', 'date': date(1917, 10, 24), 'location': 'Петроград', 'visitors': 1200, 'staff': 50},
+        {'name': 'Развлечения и IT: стриминг, игры и новые форматы', 'date': date(2026, 11, 27), 'location': 'Санкт-Петербург', 'visitors': 300, 'staff': 20},
+        {'name': 'Смерть Елизаветы 2', 'date': date(2022, 9 ,8), 'location': 'Замок Балморал, Шотландия', 'visitors': 80, 'staff': 5},
+        {'name': 'Запуск миссии «Артемида-3» к Луне', 'date': date(2027, 9, 1), 'location': 'Космический центр Кеннеди, США', 'visitors': 500, 'staff': 30},
     ]
-    context = {**general_info, 'events': events}
-    return render(request, 'sevenvarik.html', context)
+    context = {**general_info, 'events': events, 'today': today}
+    return render(request, 'listofevents.html', context)

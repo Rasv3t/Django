@@ -11,33 +11,33 @@
 <body>
 <h1>{{ title }}</h1>
 <div class="card wide">
-    <h2 class="title">Список товаров</h2>
+    <h2 class="title">Список событий</h2>
+    <p class="meta">Сегодня: {% now 'l, d.m.Y H:i' %}</p>
     <table>
         <thead>
         <tr>
-            <th>Название</th>
-            <th>Категория</th>
-            <th>Цена</th>
-            <th>Наличие</th>
-
+            <th>Наименование</th>
+            <th>Дата</th>
+            <th>Место проведения</th>
+            <th>Участники</th>
         </tr>
   </thead>
     {% for t in events %}
         <tr>
             <td>{{ t.name }}</td>
-            <td>{{ t.category }}</td>
-            {% if t.price >= 10000 %}
-                <td>{{ t.price }} (Дорогой товар)</td>
-            {% elif t.price >= 5000 %}
-                <td>{{ t.price }} (Средняя цена)</td>
+            <td>{{ t.date|date:'d.m.Y' }}
+            {% if t.date >= today %}
+                (Предстоящее)
             {% else %}
-                <td>{{ t.price }} (Доступная цена)</td>
+                (Прошедшее)
             {% endif %}
-            {% if t.stock == True %}
-                <td>Товар доступен для заказа</td>
-            {% else %}
-                <td>Товара временно нет в наличии</td>
-            {% endif %}
+            </td>
+            <td>{{ t.location }}</td>
+            <td>
+            {% with total=t.visitors|add:t.staff %}
+                Участников: {{ total }}
+            {% endwith %}
+            </td>
         </tr>
     {% endfor %}
     </table>
