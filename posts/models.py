@@ -1,7 +1,14 @@
 from django.db import models
+from django.utils import timezone
 
 class Post(models.Model):
-    text = models.TextField()
+
+    title = models.CharField(max_length=120)
+    content = models.TextField()
 
     def __str__(self):
-        return self.text[:50]
+        return self.title
+
+    class Meta:
+        verbose_name = 'Моя модель'
+        verbose_name_plural = 'Мои модели'
