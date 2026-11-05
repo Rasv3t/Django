@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-class Post(models.Model):
+class Article(models.Model):
 
     title = models.CharField(max_length=120)
     content = models.TextField()
@@ -10,12 +10,16 @@ class Post(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Моя модель'
-        verbose_name_plural = 'Мои модели'
+        verbose_name = 'Артикль'
+        verbose_name_plural = 'Артикли'
 
 class Category(models.Model):
     name = models.CharField(max_length=50, verbose_name='Имя категории')
     slug = models.SlugField(unique=True, help_text='Слаг - это часть URL-адреса ресурса')
+
+    class Meta:
+        verbose_name = 'Категории'
+        verbose_name_plural = 'Мои категории'
 
 class Classroom(models.Model):
     name = models.CharField(max_length=50)
@@ -26,6 +30,7 @@ class Classroom(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Post(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название записи')
